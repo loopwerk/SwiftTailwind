@@ -4,6 +4,26 @@
   import Crypto
 #endif
 import Foundation
+#if canImport(FoundationNetworking)
+  import FoundationNetworking
+
+  extension URLSession {
+    func data(from url: URL) async throws -> (Data, URLResponse) {
+      try await withCheckedThrowingContinuation { continuation in
+        let task = self.dataTask(with: url) { data, response, error in
+          if let error {
+            continuation.resume(throwing: error)
+          } else if let data, let response {
+            continuation.resume(returning: (data, response))
+          } else {
+            continuation.resume(throwing: SwiftTailwindError.downloadFailed(url.absoluteString))
+          }
+        }
+        task.resume()
+      }
+    }
+  }
+#endif
 
 enum Downloader {
   private static var cacheDirectory: URL {
