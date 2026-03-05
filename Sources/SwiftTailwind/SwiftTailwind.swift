@@ -35,10 +35,6 @@ public struct SwiftTailwind: Sendable {
 
     try process.run()
     process.waitUntilExit()
-
-    if process.terminationStatus != 0 {
-      throw SwiftTailwindError.processError(process.terminationStatus)
-    }
   }
 
   private func resolvePath(_ path: String) -> String {
