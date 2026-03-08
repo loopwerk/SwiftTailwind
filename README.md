@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.svg" width="200" alt="SwiftTailwind" />
+</p>
+
 # SwiftTailwind
 
 A Swift package to download and run the [Tailwind CSS](https://tailwindcss.com) CLI from Swift projects. Useful for static site generators, server-side Swift apps, or any Swift project that needs to compile Tailwind CSS.
