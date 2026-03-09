@@ -1,9 +1,9 @@
-// swift-tools-version: 5.5
+// swift-tools-version: 5.10
 import PackageDescription
 
 let package = Package(
   name: "SwiftTailwind",
-  platforms: [.macOS(.v12)],
+  platforms: [.macOS(.v14)],
   products: [
     .library(name: "SwiftTailwind", targets: ["SwiftTailwind"]),
   ],
