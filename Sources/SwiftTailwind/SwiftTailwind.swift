@@ -6,7 +6,7 @@ public struct SwiftTailwind: Sendable {
 
   /// Create an instance that auto-downloads the standalone Tailwind CSS CLI.
   /// The binary is cached in `~/.swifttailwind/{version}/`.
-  public init(version: String, originFile: StaticString = #file) {
+  public init(version: String, originFile: StaticString = #filePath) {
     self.version = version
     self.projectRoot = Self.resolveProjectRoot(from: originFile)
   }
